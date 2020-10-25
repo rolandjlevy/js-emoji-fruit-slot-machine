@@ -12,9 +12,9 @@
       <header class="p-10">
         <h2>Emoji Slot Machine 🎰</h2>
       </header>
-      <main class="wrapper m-t-100">
+      <main class="wrapper m-t-50">
         <section class="container h-align">
-          <ul class="col">
+          <ul class="reel first">
             <li>🍋</li>
             <li>⭐</li>
             <li>🍇</li>
@@ -26,7 +26,7 @@
             <li>🍊</li>
             <li>🔔</li>
           </ul>
-          <ul class="col">
+          <ul class="reel second">
             <li>🔔</li>
             <li>💎</li>
             <li>🍒</li>
@@ -38,7 +38,7 @@
             <li>🍇</li>
             <li>🍏</li>
           </ul>
-          <ul class="col">
+          <ul class="reel third">
             <li>🍏</li>
             <li>🍊</li>
             <li>💰</li>
@@ -52,10 +52,12 @@
           </ul>
         </section>
         <section class="shadow"></section>
-        <!-- <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-        </p> -->
       </main>
+      <section class="buttons">
+        <button onclick="stopReel('first')" class="btn">Stop 1st</button> 
+        <button onclick="stopReel('second')" class="btn">Stop 2nd</button>
+        <button onclick="stopReel('third')" class="btn">Stop 3rd</button>
+      </section>
 
       <!-- <footer class="p-10">
         <p class="text-center">&copy; Roland Levy 2020 <a href="https://rolandlevy.co.uk" class="new-tab-icon" target="_blank">see more of my projects</a></p>

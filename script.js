@@ -4,10 +4,7 @@ import {
   getAllElements
 } from './src/utils.js';
 
-const emojis = ['🍏', '🍒', '🍇', '🍋', '🍉', '🍊', '🔔', '💎', '⭐', '💰' ];
 
-function shuffleArray(arr) {
-  
+window.stopReel = function(reel) {
+  getElement(`.reel.${reel}`).classList.add('stop');
 }
-
-const unused = ['💍', '🍌', '🐓', '🥇', '🐥']
