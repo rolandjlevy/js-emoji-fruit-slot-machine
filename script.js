@@ -6,4 +6,8 @@ import {
 
 const emojis = ['🍏', '🍒', '🍇', '🍋', '🍉', '🍊', '🔔', '💎', '⭐', '💰' ];
 
+function shuffleArray(arr) {
+  
+}
+
 const unused = ['💍', '🍌', '🐓', '🥇', '🐥']

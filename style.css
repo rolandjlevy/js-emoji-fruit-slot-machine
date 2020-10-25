@@ -4,8 +4,8 @@
   transition: all 0.2s ease;
   --y-from: 0;
   --y-to: 0;
-  --item-size: 50px;
-  --speed: 0.25s;
+  --item-size: 100px;
+  --speed: 0.5s;
 }
 
 * {
@@ -28,7 +28,7 @@ body {
   box-sizing: border-box;
   background: white;
   color: black;
-  font-size: 2rem;
+  font-size: 4rem;
 }
 
 /**************/
@@ -37,10 +37,10 @@ body {
 
 main.wrapper {
   position: relative;
-  height: 50px;
-  width: 150px;
+  height: var(--item-size);
+  width: calc(var(--item-size) * 3);
+  border: 1px solid #666;
   overflow: hidden;
-  border: 3px solid #666;
 }
 
 section.container {
@@ -57,7 +57,7 @@ section.shadow {
   left: -50%;
   width: 200%;
   height: 100%;
-  box-shadow: 0 10px 10px 0px #00000066 inset, 0 -10px 10px 0px #00000066 inset;
+  box-shadow: 0 10px 20px 5px #00000066 inset, 0 -10px 20px 5px #00000066 inset;
 }
 
 ul.col {
@@ -67,38 +67,33 @@ ul.col {
   padding: 0;
   list-style: none;
   animation-name: slidein;
-  animation-duration: 2.5s;
-  animation-timing-function: ease-in-out;
+  animation-duration: 3s;
+  animation-timing-function: linear;
   animation-iteration-count: 1;
-  transform: translateY(-100px);
+  transform: translateY(0);
 }
 
 @keyframes slidein {
   from { 
-    /* transform: translateY(-100%);  */
+    transform: translateY(-100%); 
     opacity: 0;
   }
   to { 
-    /* transform: translateY(0);  */
+    transform: translateY(0); 
     opacity: 1;
   }
 }
 
-ul.col:nth-child(1) {
-  border-right: 1px solid grey;
-}
-
 ul.col:nth-child(2) {
-}
-
-ul.col:nth-child(3) {
-  border-left: 1px solid grey;
+  border-left: 1px dashed #666;
+  border-right: 1px dashed #666;
 }
 
 ul.col > li {
-  height: 50px;
-  width: 50px;
-  animation-duration: 2.5s;
+  /* transform: translateY(-500px); */
+  height: var(--item-size);
+  width: var(--item-size);
+  animation-duration: calc(var(--speed) * 10);
   animation-name: animate;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
