@@ -3,3 +3,7 @@ import {
   getElement,
   getAllElements
 } from './src/utils.js';
+
+const emojis = ['🍏', '🍒', '🍇', '🍋', '🍉', '🍊', '🔔', '💎', '⭐', '💰' ];
+
+const unused = ['💍', '🍌', '🐓', '🥇', '🐥']

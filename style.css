@@ -4,7 +4,7 @@
   transition: all 0.2s ease;
   --y-from: 0;
   --y-to: 0;
-  --item-h: 50px;
+  --item-size: 50px;
   --speed: 0.25s;
 }
 
@@ -28,19 +28,36 @@ body {
   box-sizing: border-box;
   background: white;
   color: black;
-  font-size: 1.25rem;
+  font-size: 2rem;
 }
 
 /**************/
 /* Columns ****/
 /**************/
 
-section.wrapper {
+main.wrapper {
   position: relative;
   height: 50px;
   width: 150px;
-  border: 1px solid grey;
   overflow: hidden;
+  border: 3px solid #666;
+}
+
+section.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+section.shadow {
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  box-shadow: 0 10px 10px 0px #00000066 inset, 0 -10px 10px 0px #00000066 inset;
 }
 
 ul.col {
@@ -49,18 +66,33 @@ ul.col {
   margin: 0;
   padding: 0;
   list-style: none;
-}
-
-ul.col:nth-child(1) {
+  animation-name: slidein;
+  animation-duration: 2.5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
   transform: translateY(-100px);
 }
 
+@keyframes slidein {
+  from { 
+    /* transform: translateY(-100%);  */
+    opacity: 0;
+  }
+  to { 
+    /* transform: translateY(0);  */
+    opacity: 1;
+  }
+}
+
+ul.col:nth-child(1) {
+  border-right: 1px solid grey;
+}
+
 ul.col:nth-child(2) {
-  transform: translateY(-150px);
 }
 
 ul.col:nth-child(3) {
-  transform: translateY(-200px);
+  border-left: 1px solid grey;
 }
 
 ul.col > li {
@@ -72,73 +104,69 @@ ul.col > li {
   animation-timing-function: linear;
 }
 
+@keyframes animate {
+  from { transform: translateY(var(--y-from)); }
+  to { transform: translateY(var(--y-to)); }
+}
+
 ul.col > li:nth-child(1) {
   animation-delay: calc(var(--speed) * 1);
-  --y-from: calc(var(--item-h) * -5);
-  --y-to: calc(var(--item-h) * 5);
+  --y-from: calc(var(--item-size) * -10);
+  --y-to: calc(var(--item-size) * 0);
 }
 
 ul.col > li:nth-child(2) {
   animation-delay: calc(var(--speed) * 2);
-  --y-from: calc(var(--item-h) * -4);
-  --y-to: calc(var(--item-h) * 6);
+  --y-from: calc(var(--item-size) * -9);
+  --y-to: calc(var(--item-size) * 1);
 }
 
 ul.col > li:nth-child(3) {
   animation-delay: calc(var(--speed) * 3);
-  --y-from: calc(var(--item-h) * -3);
-  --y-to: calc(var(--item-h) * 7);
+  --y-from: calc(var(--item-size) * -8);
+  --y-to: calc(var(--item-size) * 2);
 }
 
 ul.col > li:nth-child(4) {
   animation-delay: calc(var(--speed) * 4);
-  --y-from: calc(var(--item-h) * -2);
-  --y-to: calc(var(--item-h) * 8);
+  --y-from: calc(var(--item-size) * -7);
+  --y-to: calc(var(--item-size) * 3);
 }
 
 ul.col > li:nth-child(5) {
   animation-delay: calc(var(--speed) * 5);
-  --y-from: calc(var(--item-h) * -1);
-  --y-to: calc(var(--item-h) * 9);
+  --y-from: calc(var(--item-size) * -6);
+  --y-to: calc(var(--item-size) * 4);
 }
 
 ul.col > li:nth-child(6) {
   animation-delay: calc(var(--speed) * 6);
-  --y-from: calc(var(--item-h) * 0);
-  --y-to: calc(var(--item-h) * 10);
+  --y-from: calc(var(--item-size) * -5);
+  --y-to: calc(var(--item-size) * 5);
 }
 
 ul.col > li:nth-child(7) {
   animation-delay: calc(var(--speed) * 7);
-  --y-from: calc(var(--item-h) * 1);
-  --y-to: calc(var(--item-h) * 11);
+  --y-from: calc(var(--item-size) * -4);
+  --y-to: calc(var(--item-size) * 6);
 }
 
 ul.col > li:nth-child(8) {
   animation-delay: calc(var(--speed) * 8);
-  --y-from: calc(var(--item-h) * 2);
-  --y-to: calc(var(--item-h) * 12);
+  --y-from: calc(var(--item-size) * -3);
+  --y-to: calc(var(--item-size) * 7);
 }
 
 ul.col > li:nth-child(9) {
   animation-delay: calc(var(--speed) * 9);
-  --y-from: calc(var(--item-h) * 3);
-  --y-to: calc(var(--item-h) * 13);
+  --y-from: calc(var(--item-size) * -2);
+  --y-to: calc(var(--item-size) * 8);
 }
 
 ul.col > li:nth-child(10) {
   animation-delay: calc(var(--speed) * 10);
-  --y-from: calc(var(--item-h) * 4);
-  --y-to: calc(var(--item-h) * 14);
-}
-
-@keyframes animate {
-  from {
-    transform: translateY(var(--y-from));
-  }
-  to {
-    transform: translateY(var(--y-to));
-  }
+  --y-from: calc(var(--item-size) * -1);
+  --y-to: calc(var(--item-size) * 9);
 }
 
 /***********/
