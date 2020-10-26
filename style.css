@@ -28,7 +28,6 @@ body {
   padding: 0;
   box-sizing: border-box;
   background: #000;
-  font-size: 4rem;
   color: white;
 }
 
@@ -42,13 +41,14 @@ main.wrapper {
   width: calc(var(--item-size) * 3);
   background-color: white;
   overflow: var(--overflow-state);
-  transition: all 1s ease;
+  transform: scaleY(1);
+  transition: all 1s ease-in-out;
 }
 
 main.wrapper.init {
   background-color: #000;
-  height: 0;
-  transition: all 2s ease-in-out;
+  transform: scaleY(0.1);
+  transition: all 1s ease-in-out;
 }
 
 section.container {
@@ -81,6 +81,7 @@ ul.reel {
   transform: translateY(0);
   border-left: 3px solid #000;
   border-right: 3px solid #000;
+  font-size: 4rem;
 }
 
 @keyframes slidein {
@@ -229,22 +230,28 @@ h2 {
 
 .btn {
   border: none;
-  border-radius: 50%;
+  border-radius: 5px;
   background-color: #ccc;
   color: #386900;
-  cursor: pointer;
-  width: 30px;
-  height: 30px;
+  width: 50px;
+  height: 50px;
   outline: none;
   box-shadow: 0 0 10px 2px #8fff0e;
+  pointer-events: none;
+  cursor: default;
+  font-size: 1.5rem;
   transition: all 0.2s ease;
 }
 
-.btn:hover,
+.btn.active:hover {
+  box-shadow: 0 0 10px 5px #8fff0e;
+  cursor: pointer;
+}
+
 .btn.active {
   color: #386900;
   background-color: #fff;
-  box-shadow: 0 0 10px 5px #8fff0e;
+  pointer-events: all;
   transition: all 0.2s ease;
 }
 
@@ -311,16 +318,19 @@ h2 {
 
 footer {
   font-size: 1.125rem;
+  position: absolute;
+  bottom: 0;
+  color: #ccc;
 }
 
 footer a {
-  color: black;
+  color: #ccc;
   font-weight: bold;
   transition: all 0.2s ease;
 }
 
 footer a:hover {
-  color: black;
+  color: #fff;
   transition: all 0.2s ease;
   text-decoration: none;
 }
@@ -355,6 +365,10 @@ footer a:hover {
 
 .m-t-50 {
   margin-top: 50px;
+}
+
+.m-t-30 {
+  margin-top: 30px;
 }
 
 .m-t-100 {
