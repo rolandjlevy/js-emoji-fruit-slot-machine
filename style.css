@@ -6,13 +6,14 @@
   --y-to: 0;
   --item-size: 100px;
   --speed: 0.5;
+  --overflow-state: hidden;
 }
 
 * {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   line-height: 1.5;
   font-family: 'Open Sans', sans-serif;
-  /* border: 1px solid #eee; */
+  /* border: 1px solid #999; */
 }
 
 html {
@@ -26,7 +27,7 @@ body {
   margin: 20px;
   padding: 0;
   box-sizing: border-box;
-  background: #333;
+  background: #000;
   font-size: 4rem;
   color: white;
 }
@@ -39,8 +40,15 @@ main.wrapper {
   position: relative;
   height: var(--item-size);
   width: calc(var(--item-size) * 3);
-  overflow: hidden;
   background-color: white;
+  overflow: var(--overflow-state);
+  transition: all 1s ease;
+}
+
+main.wrapper.init {
+  background-color: #000;
+  height: 0;
+  transition: all 2s ease-in-out;
 }
 
 section.container {
@@ -71,6 +79,8 @@ ul.reel {
   animation-timing-function: linear;
   animation-iteration-count: 1;
   transform: translateY(0);
+  border-left: 3px solid #000;
+  border-right: 3px solid #000;
 }
 
 @keyframes slidein {
@@ -85,8 +95,8 @@ ul.reel {
 }
 
 ul.reel:nth-child(2) {
-  border-left: 1px dashed #666;
-  border-right: 1px dashed #666;
+  /* border-left: 1px dashed #666;
+  border-right: 1px dashed #666; */
 }
 
 ul.reel > li {
@@ -96,6 +106,8 @@ ul.reel > li {
   animation-name: animate;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+  --speed: inherit;
+  transition: all 1s ease;
 }
 
 @keyframes animate {
@@ -115,11 +127,18 @@ ul.reel:nth-child(3) {
   --speed: 0.25;
 }
 
-ul.reel.stop > li {
+ul.reel.stop > li,
+ul.reel > li.stop {
   /* --speed: 1; */
   /* transform: translateY(var(--y-from)); */
+  /* animation-iteration-count: 1; */
   animation-play-state: paused;
-  transition: all 1s ease;
+  /* transition: all 5s ease; */
+}
+
+ul.reel.stop {
+  /* --speed: 1;
+  transition: all 1s ease; */
 }
 
 ul.reel > li:nth-child(1) {
@@ -208,8 +227,40 @@ h2 {
   margin-top: 20px;
 }
 
-.buttons > .btn {
+.btn {
+  border: none;
+  border-radius: 50%;
+  background-color: #ccc;
+  color: #386900;
   cursor: pointer;
+  width: 30px;
+  height: 30px;
+  outline: none;
+  box-shadow: 0 0 10px 2px #8fff0e;
+  transition: all 0.2s ease;
+}
+
+.btn:hover,
+.btn.active {
+  color: #386900;
+  background-color: #fff;
+  box-shadow: 0 0 10px 5px #8fff0e;
+  transition: all 0.2s ease;
+}
+
+.btn::after {
+  font-family: "Font Awesome 5 Free"; 
+  font-weight: 900;
+  content: "\f04c";
+}
+
+.btn.active {
+  transition: all 0.25s ease;
+}
+
+.btn.active::after {
+  content: "\f04b";
+  margin-left: 3px;
 }
 
 /**************/

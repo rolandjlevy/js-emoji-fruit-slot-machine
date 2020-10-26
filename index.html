@@ -9,21 +9,21 @@
   </head>
   <body>
     <article class="v-align w-max-768 m-auto">
-      <header class="p-10">
-        <h2>Emoji Slot Machine 🎰</h2>
+      <header class="h-align p-10">
+        <h2 class="text-center">Emoji Slot Machine 🎰</h2>
       </header>
-      <main class="wrapper m-t-50">
+      <main class="wrapper init m-t-50">
         <section class="container h-align">
           <ul class="reel first">
             <li>🍋</li>
-            <li>⭐</li>
+            <li>🐟</li>
             <li>🍇</li>
             <li>🍉</li>
             <li>💎</li>
             <li>🍒</li>
             <li>💰</li>
             <li>🍏</li>
-            <li>🍊</li>
+            <li>🎃</li>
             <li>🔔</li>
           </ul>
           <ul class="reel second">
@@ -33,16 +33,16 @@
             <li>💰</li>
             <li>🍉</li>
             <li>🍋</li>
-            <li>⭐</li>
-            <li>🍊</li>
+            <li>🐟</li>
+            <li>🎃</li>
             <li>🍇</li>
             <li>🍏</li>
           </ul>
           <ul class="reel third">
             <li>🍏</li>
-            <li>🍊</li>
+            <li>🎃</li>
             <li>💰</li>
-            <li>⭐</li>
+            <li>🐟</li>
             <li>🔔</li>
             <li>🍇</li>
             <li>🍉</li>
@@ -54,9 +54,7 @@
         <section class="shadow"></section>
       </main>
       <section class="buttons">
-        <button onclick="stopReel('first')" class="btn">Stop 1st</button> 
-        <button onclick="stopReel('second')" class="btn">Stop 2nd</button>
-        <button onclick="stopReel('third')" class="btn">Stop 3rd</button>
+        <button onclick="toggleReels(this)" class="btn"></button> 
       </section>
 
       <!-- <footer class="p-10">

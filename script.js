@@ -1,36 +1,47 @@
-import {
-  createElement,
-  getElement,
-  getAllElements
-} from './src/utils.js';
+import { $, $$, delay, randomNum, getRandomNumbers } from './src/utils.js';
 
+$('main.wrapper').classList.remove('init');
 
-// window.stopReel = function(reel) {
-//   getElement(`.reel.${reel}`).classList.add('stop');
-// }
+let running = true;
 
-window.stopReel = function(reel) {
-  getElement(`.reel.${reel}`).classList.add('stop');
+window.toggleReels = function(btn) {
+  running ? stopReels() : startReels();
+  btn.classList.toggle('active');
+  running = !running;
+}
 
-  // box.style.opacity = window.getComputedStyle(box).opacity - 0.02;
+const startReels = function() {
+  $('.reel.first').classList.remove('stop');
+  $('.reel.second').classList.remove('stop');
+  $('.reel.third').classList.remove('stop');
+}
 
+const stopReels = async function() {
+  const nums = getRandomNumbers(3, 10);
+  await delay(4000);
+  stopAnimation('first', nums[0]);
+  await delay(4000);
+  stopAnimation('second', nums[1]);
+  await delay(4000);
+  stopAnimation('third', nums[2]);
+}
 
-  // const thisReel = getElement(`.reel.${reel}`);
-  
-  // let currentSpeed = Number(getComputedStyle(thisReel).getPropertyValue('--speed'));
-  // thisReel.style.setProperty('--speed', `1`);
+const topOffset = 379;
 
-  // const timer = setInterval(() => {
-  //   currentSpeed += 0.05;
-  //   thisReel.style.setProperty('--speed', String(currentSpeed.toFixed(2)));
-  //   thisReel.style.setProperty('--speed', getComputedStyle(thisReel).getPropertyValue('--speed') + 0.05);
-  //   if (currentSpeed >= 2) clearInterval(timer);
-  // }, 100);
+function stopAnimation(reelName, pos) {
+  const reel = $(`.reel.${reelName}`);
+  const timer = setInterval(() => {
+    const rect = reel.firstElementChild.getBoundingClientRect();
+    const top = rect.top + topOffset;
+    if (top >= (pos * 100) - 90 && top <= (pos * 100) - 80) {
+      reel.classList.add('stop');
+      clearInterval(timer);
+    }
+  }, 1);
+}
 
-  // const reelFirstAll = getAllElements('.reel.first > li');
-  // reelFirstAll.forEach(item => {
-  //   item.style.setProperty('animationPlayState', 'paused');
-  //   item.style.setProperty('--speed', '1');
-  // });
- 
+window.toggleReel = function(reel, btn) {
+  const thisReel = $(`.reel.${reel}`);
+  thisReel.classList.toggle('stop');
+  btn.classList.toggle('active');
 }
