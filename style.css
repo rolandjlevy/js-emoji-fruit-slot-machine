@@ -116,6 +116,8 @@ ul.reel:nth-child(3) {
 }
 
 ul.reel.stop > li {
+  /* --speed: 1; */
+  /* transform: translateY(var(--y-from)); */
   animation-play-state: paused;
   transition: all 1s ease;
 }
