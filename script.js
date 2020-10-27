@@ -20,7 +20,7 @@ function stopAnimation(reelName, pos, state) {
   const timer = setInterval(() => {
     const rect = reel.firstElementChild.getBoundingClientRect();
     const top = rect.top + topOffset;
-    if (top >= (pos * 100) - 90 && top <= (pos * 100) - 75) {
+    if (top >= (pos * 100) - 100 && top <= (pos * 100) - 90) {
       if (reelName === 'third') {
         $('.toggle.btn').classList.add('active');
       }
@@ -36,7 +36,8 @@ window.toggleReel = function(reel, btn) {
   btn.classList.toggle('active');
 }
 
-document.addEventListener('DOMContentLoaded', (e) => {
+document.addEventListener('DOMContentLoaded', async (e) => {
   $('main.wrapper').classList.remove('init');
+  await delay(2000);
   startReels();
 });

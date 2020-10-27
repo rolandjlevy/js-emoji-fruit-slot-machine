@@ -36,9 +36,10 @@ body {
 /**************/
 
 main.wrapper {
-  position: relative;
+  position: fixed;
+  top: 120px;
   height: var(--item-size);
-  width: calc(var(--item-size) * 3);
+  width: calc(var(--item-size) * 3 + 20px);
   background-color: white;
   overflow: var(--overflow-state);
   transform: scaleY(1);
@@ -93,9 +94,17 @@ ul.reel {
   }
 }
 
+ul.reel:nth-child(1) {
+  border-right: 5px solid #000;
+}
+
 ul.reel:nth-child(2) {
   border-left: 5px solid #000;
   border-right: 5px solid #000;
+}
+
+ul.reel:nth-child(3) {
+  border-left: 5px solid #000;
 }
 
 ul.reel > li {
@@ -208,13 +217,16 @@ main > p:last-child {
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 1.675rem;
   font-weight: 700;
+  line-height: 1.25;
   letter-spacing: 1px;
   margin: 10px 0;
 }
 
 .buttons {
+  position: fixed;
+  top: 100px;
   width: 300px;
   display: flex;
   justify-content: space-around;
@@ -363,6 +375,10 @@ footer a:hover {
 
 .m-t-30 {
   margin-top: 30px;
+}
+
+.m-t-150 {
+  margin-top: 150px;
 }
 
 .m-t-100 {
