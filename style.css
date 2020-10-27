@@ -81,6 +81,7 @@ ul.reel {
   animation-iteration-count: 1;
   transform: translateY(0);
   font-size: 4rem;
+  --speed: 0.25;
 }
 
 @keyframes slidein {
@@ -121,18 +122,6 @@ ul.reel > li {
 @keyframes animate {
   from { transform: translateY(var(--y-from)); }
   to { transform: translateY(var(--y-to)); }
-}
-
-ul.reel:nth-child(1) {
-  --speed: 0.25;
-}
-
-ul.reel:nth-child(2) {
-  --speed: 0.25;
-}
-
-ul.reel:nth-child(3) {
-  --speed: 0.25;
 }
 
 ul.reel.stop > li {
