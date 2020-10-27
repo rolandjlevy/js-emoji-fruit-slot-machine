@@ -7,6 +7,7 @@
   --item-size: 100px;
   --speed: 0.5;
   --overflow-state: hidden;
+  --deep-grey: #333;
 }
 
 * {
@@ -27,7 +28,7 @@ body {
   margin: 20px;
   padding: 0;
   box-sizing: border-box;
-  background: #333;
+  background: var(--deep-grey);
   color: white;
 }
 
@@ -36,8 +37,7 @@ body {
 /**************/
 
 main.wrapper {
-  position: fixed;
-  top: 120px;
+  position: relative;
   height: var(--item-size);
   width: calc(var(--item-size) * 3 + 20px);
   background-color: white;
@@ -47,9 +47,9 @@ main.wrapper {
 }
 
 main.wrapper.init {
-  background-color: #333;
-  transform: scaleY(0.1);
-  transition: all 1s ease-in-out;
+  background-color: var(--deep-grey);
+  transform: scaleX(0.1);
+  transition: all 1s ease-in;
 }
 
 section.container {
@@ -66,7 +66,7 @@ section.shadow {
   left: -50%;
   width: 200%;
   height: 100%;
-  box-shadow: 0 10px 20px 5px #00000099 inset, 0 -10px 20px 5px #00000099 inset;
+  box-shadow: 0 12px 25px 10px #33333399 inset, 0 -8px 20px 5px #33333399 inset;
 }
 
 ul.reel {
@@ -80,7 +80,6 @@ ul.reel {
   animation-timing-function: linear;
   animation-iteration-count: 1;
   transform: translateY(0);
-  font-size: 4rem;
   --speed: 0.25;
 }
 
@@ -96,16 +95,16 @@ ul.reel {
 }
 
 ul.reel:nth-child(1) {
-  border-right: 5px solid #333;
+  border-right: 5px solid var(--deep-grey);
 }
 
 ul.reel:nth-child(2) {
-  border-left: 5px solid #333;
-  border-right: 5px solid #333;
+  border-left: 5px solid var(--deep-grey);
+  border-right: 5px solid var(--deep-grey);
 }
 
 ul.reel:nth-child(3) {
-  border-left: 5px solid #333;
+  border-left: 5px solid var(--deep-grey);
 }
 
 ul.reel > li {
@@ -116,6 +115,8 @@ ul.reel > li {
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   --speed: inherit;
+  font-size: 3.75rem;
+  text-shadow: 0 5px 8px #333;
   transition: all 1s ease;
 }
 
@@ -194,6 +195,29 @@ ul.reel > li:nth-child(10) {
 }
 
 /***********/
+/* Scoring */
+/***********/
+
+table td {
+  padding: 5px;
+}
+
+thead > tr > td {
+  font-size: 1.325rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+tbody > tr > td:first-child {
+  font-size: 1.5rem;
+  text-shadow: 0 3px 8px #000;
+}
+
+tbody > tr > td:last-child {
+  font-size: 1.125rem;
+}
+
+/***********/
 /* Main ****/
 /***********/
 
@@ -206,7 +230,7 @@ main > p:last-child {
 }
 
 h2 {
-  font-size: 1.675rem;
+  font-size: calc(0.675rem + 3vw);
   font-weight: 700;
   line-height: 1.25;
   letter-spacing: 1px;
@@ -214,8 +238,7 @@ h2 {
 }
 
 .buttons {
-  position: fixed;
-  top: 100px;
+  position: relative;
   width: 300px;
   display: flex;
   justify-content: space-around;
@@ -313,7 +336,7 @@ h2 {
 
 footer {
   font-size: 1.125rem;
-  position: absolute;
+  position: relative;
   bottom: 0;
   color: #ccc;
 }
@@ -337,16 +360,9 @@ footer a:hover {
   margin-left: 5px;
 }
 
-/*****************/
-/* Media queries */
-/*****************/
-
 @media only screen and (max-width: 768px) {
   :root {
     transition: all 0.2s ease;
-  }
-  h1 {
-    font-size: calc(1rem + 3vw);
   }
 }
 
@@ -368,6 +384,10 @@ footer a:hover {
 
 .m-t-150 {
   margin-top: 150px;
+}
+
+.m-t-250 {
+  margin-top: 250px;
 }
 
 .m-t-100 {
