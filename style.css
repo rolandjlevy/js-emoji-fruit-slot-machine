@@ -198,14 +198,19 @@ ul.reel > li:nth-child(10) {
 /* Scoring */
 /***********/
 
-table td {
-  padding: 5px;
-}
-
-thead > tr > td {
+.scoring > header > h2 {
   font-size: 1.325rem;
   font-weight: 800;
   text-align: center;
+}
+
+.scrollable {
+  /* max-height: 150px;
+  overflow-y: scroll; */
+}
+
+table td {
+  padding: 5px;
 }
 
 tbody > tr > td:first-child {
@@ -230,11 +235,12 @@ main > p:last-child {
 }
 
 h2 {
-  font-size: calc(0.675rem + 3vw);
+  font-size: 2rem;
   font-weight: 700;
   line-height: 1.25;
   letter-spacing: 1px;
   margin: 10px 0;
+  text-shadow: 0 5px 8px #333;
 }
 
 .buttons {
@@ -286,6 +292,22 @@ h2 {
 .btn.active::after {
   content: "\f04b";
   margin-left: 3px;
+}
+
+.glow {
+  --pink: #e60073;
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--pink), 0 0 40px var(--pink), 0 0 50px var(--pink), 0 0 60px var(--pink), 0 0 70px var(--pink);
+    background-color: #fff;
+    width: 40px;
+    height: 30px;
+    color: var(--pink);
+    line-height: 1.5;
+    padding: 10px;
+    margin: 0;
+}
+
+.glow:hover {
+    box-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
 }
 
 /**************/
@@ -361,8 +383,16 @@ footer a:hover {
 }
 
 @media only screen and (max-width: 768px) {
-  :root {
-    transition: all 0.2s ease;
+  h2 {
+    font-size: 1.675rem;
+    transition: all 0.5s ease;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  h2 {
+    font-size: 1.375rem;
+    transition: all 0.5s ease;
   }
 }
 
