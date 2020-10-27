@@ -79,8 +79,6 @@ ul.reel {
   animation-timing-function: linear;
   animation-iteration-count: 1;
   transform: translateY(0);
-  border-left: 3px solid #000;
-  border-right: 3px solid #000;
   font-size: 4rem;
 }
 
@@ -96,8 +94,8 @@ ul.reel {
 }
 
 ul.reel:nth-child(2) {
-  /* border-left: 1px dashed #666;
-  border-right: 1px dashed #666; */
+  border-left: 5px solid #000;
+  border-right: 5px solid #000;
 }
 
 ul.reel > li {
@@ -128,13 +126,8 @@ ul.reel:nth-child(3) {
   --speed: 0.25;
 }
 
-ul.reel.stop > li,
-ul.reel > li.stop {
-  /* --speed: 1; */
-  /* transform: translateY(var(--y-from)); */
-  /* animation-iteration-count: 1; */
+ul.reel.stop > li {
   animation-play-state: paused;
-  /* transition: all 5s ease; */
 }
 
 ul.reel.stop {
@@ -215,7 +208,7 @@ main > p:last-child {
 }
 
 h2 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   letter-spacing: 1px;
   margin: 10px 0;
@@ -231,7 +224,7 @@ h2 {
 .btn {
   border: none;
   border-radius: 5px;
-  background-color: #ccc;
+  background-color: #a7b4a0;
   color: #386900;
   width: 50px;
   height: 50px;
@@ -249,9 +242,10 @@ h2 {
 }
 
 .btn.active {
-  color: #386900;
-  background-color: #fff;
+  color: #fff;
+  background-color: #c9e6ba;
   pointer-events: all;
+  text-shadow: 0 2px 5px grey;
   transition: all 0.2s ease;
 }
 

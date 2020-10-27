@@ -20,7 +20,7 @@ function stopAnimation(reelName, pos, state) {
   const timer = setInterval(() => {
     const rect = reel.firstElementChild.getBoundingClientRect();
     const top = rect.top + topOffset;
-    if (top >= (pos * 100) - 90 && top <= (pos * 100) - 80) {
+    if (top >= (pos * 100) - 90 && top <= (pos * 100) - 75) {
       if (reelName === 'third') {
         $('.toggle.btn').classList.add('active');
       }
