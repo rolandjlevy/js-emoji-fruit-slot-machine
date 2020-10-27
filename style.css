@@ -27,7 +27,7 @@ body {
   margin: 20px;
   padding: 0;
   box-sizing: border-box;
-  background: #000;
+  background: #333;
   color: white;
 }
 
@@ -47,7 +47,7 @@ main.wrapper {
 }
 
 main.wrapper.init {
-  background-color: #000;
+  background-color: #333;
   transform: scaleY(0.1);
   transition: all 1s ease-in-out;
 }
@@ -96,16 +96,16 @@ ul.reel {
 }
 
 ul.reel:nth-child(1) {
-  border-right: 5px solid #000;
+  border-right: 5px solid #333;
 }
 
 ul.reel:nth-child(2) {
-  border-left: 5px solid #000;
-  border-right: 5px solid #000;
+  border-left: 5px solid #333;
+  border-right: 5px solid #333;
 }
 
 ul.reel:nth-child(3) {
-  border-left: 5px solid #000;
+  border-left: 5px solid #333;
 }
 
 ul.reel > li {
