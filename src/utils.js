@@ -26,9 +26,9 @@ const getRandomNumbers = function(n, max) {
 }
 
 export {
+  $, $$,
   createElement,
   delay,
   randomNum,
-  getRandomNumbers,
-  $, $$
+  getRandomNumbers
 };

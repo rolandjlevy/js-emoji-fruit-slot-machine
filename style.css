@@ -207,6 +207,9 @@ ul.reel > li:nth-child(10) {
 .scrollable {
   /* max-height: 150px;
   overflow-y: scroll; */
+  padding: 20px;
+  background: #555;
+  box-shadow: 0 5px 15px 5px #00000066;
 }
 
 table td {
@@ -241,6 +244,7 @@ h2 {
   letter-spacing: 1px;
   margin: 10px 0;
   text-shadow: 0 5px 8px #333;
+  transition: all 0.5s ease;
 }
 
 .buttons {
@@ -384,14 +388,14 @@ footer a:hover {
 
 @media only screen and (max-width: 768px) {
   h2 {
-    font-size: 1.675rem;
+    font-size: 1.75rem;
     transition: all 0.5s ease;
   }
 }
 
 @media only screen and (max-width: 480px) {
   h2 {
-    font-size: 1.375rem;
+    font-size: 1.5rem;
     transition: all 0.5s ease;
   }
 }
