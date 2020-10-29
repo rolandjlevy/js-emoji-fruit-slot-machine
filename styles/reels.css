@@ -1,0 +1,124 @@
+ul.reel {
+  display: flex;
+  flex-direction: column-reverse;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  animation-name: slidein;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  transform: translateY(0);
+  --speed: 0.25;
+}
+
+@keyframes slidein {
+  from { 
+    transform: translateY(-100%); 
+    opacity: 0;
+  }
+  to { 
+    transform: translateY(0); 
+    opacity: 1;
+  }
+}
+
+ul.reel:nth-child(1) {
+  border-right: 5px solid var(--deep-grey);
+}
+
+ul.reel:nth-child(2) {
+  border-left: 5px solid var(--deep-grey);
+  border-right: 5px solid var(--deep-grey);
+}
+
+ul.reel:nth-child(3) {
+  border-left: 5px solid var(--deep-grey);
+}
+
+ul.reel > li {
+  --speed: inherit;
+  height: var(--item-size);
+  width: var(--item-size);
+  animation-duration: calc(var(--speed) * 10s);
+  animation-name: animate;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  font-size: 3.75rem;
+  text-shadow: 0 5px 8px #333;
+  transition: all 1s ease;
+}
+
+@keyframes animate {
+  from { transform: translateY(var(--y-from)); }
+  to { transform: translateY(var(--y-to)); }
+}
+
+ul.reel.stop > li {
+  animation-play-state: paused;
+}
+
+ul.reel.stop {
+  /* --speed: 1;
+  transition: all 1s ease; */
+}
+
+ul.reel > li:nth-child(1) {
+  animation-delay: calc(var(--speed) * 1s);
+  --y-from: calc(var(--item-size) * -10);
+  --y-to: calc(var(--item-size) * 0);
+}
+
+ul.reel > li:nth-child(2) {
+  animation-delay: calc(var(--speed) * 2s);
+  --y-from: calc(var(--item-size) * -9);
+  --y-to: calc(var(--item-size) * 1);
+}
+
+ul.reel > li:nth-child(3) {
+  animation-delay: calc(var(--speed) * 3s);
+  --y-from: calc(var(--item-size) * -8);
+  --y-to: calc(var(--item-size) * 2);
+}
+
+ul.reel > li:nth-child(4) {
+  animation-delay: calc(var(--speed) * 4s);
+  --y-from: calc(var(--item-size) * -7);
+  --y-to: calc(var(--item-size) * 3);
+}
+
+ul.reel > li:nth-child(5) {
+  animation-delay: calc(var(--speed) * 5s);
+  --y-from: calc(var(--item-size) * -6);
+  --y-to: calc(var(--item-size) * 4);
+}
+
+ul.reel > li:nth-child(6) {
+  animation-delay: calc(var(--speed) * 6s);
+  --y-from: calc(var(--item-size) * -5);
+  --y-to: calc(var(--item-size) * 5);
+}
+
+ul.reel > li:nth-child(7) {
+  animation-delay: calc(var(--speed) * 7s);
+  --y-from: calc(var(--item-size) * -4);
+  --y-to: calc(var(--item-size) * 6);
+}
+
+ul.reel > li:nth-child(8) {
+  animation-delay: calc(var(--speed) * 8s);
+  --y-from: calc(var(--item-size) * -3);
+  --y-to: calc(var(--item-size) * 7);
+}
+
+ul.reel > li:nth-child(9) {
+  animation-delay: calc(var(--speed) * 9s);
+  --y-from: calc(var(--item-size) * -2);
+  --y-to: calc(var(--item-size) * 8);
+}
+
+ul.reel > li:nth-child(10) {
+  animation-delay: calc(var(--speed) * 10s);
+  --y-from: calc(var(--item-size) * -1);
+  --y-to: calc(var(--item-size) * 9);
+}
