@@ -25,6 +25,12 @@ const getRandomNumbers = function(n, max) {
   return selected;
 }
 
+window.toggleReel = function(reel, btn) {
+  const thisReel = $(`.reel.${reel}`);
+  thisReel.classList.toggle('stop');
+  btn.classList.toggle('active');
+}
+
 export {
   $, $$,
   createElement,

@@ -2,16 +2,16 @@ import { $, $$, delay, randomNum, getRandomNumbers } from './src/utils.js';
 
 window.startReels = async function() {
   $('.toggle.btn').classList.remove('active');
-  $('.reel.first').classList.remove('stop');
-  $('.reel.second').classList.remove('stop');
-  $('.reel.third').classList.remove('stop');
+  ['r1', 'r2', 'r3'].forEach(item => {
+    $(`.reel.${item}`).classList.remove('stop');
+  });
   const nums = getRandomNumbers(3, 10);
   await delay();
-  stopAnimation('first', nums[0]);
+  stopAnimation('r1', nums[0]);
   await delay();
-  stopAnimation('second', nums[1]);
+  stopAnimation('r2', nums[1]);
   await delay();
-  stopAnimation('third', nums[2]);
+  stopAnimation('r3', nums[2]);
 }
 
 function stopAnimation(reelName, pos, state) {
@@ -20,20 +20,14 @@ function stopAnimation(reelName, pos, state) {
   const timer = setInterval(() => {
     const rect = reel.firstElementChild.getBoundingClientRect();
     const top = rect.top + topOffset;
-    if (top >= (pos * 100) - 15 && top <= (pos * 100) - 5) {
-      if (reelName === 'third') {
+    if (top >= (pos * 100) - 60 && top <= (pos * 100) - 50) {
+      if (reelName === 'r3') {
         $('.toggle.btn').classList.add('active');
       }
       reel.classList.add('stop');
       clearInterval(timer);
     }
   }, 1);
-}
-
-window.toggleReel = function(reel, btn) {
-  const thisReel = $(`.reel.${reel}`);
-  thisReel.classList.toggle('stop');
-  btn.classList.toggle('active');
 }
 
 document.addEventListener('DOMContentLoaded', async (e) => {
