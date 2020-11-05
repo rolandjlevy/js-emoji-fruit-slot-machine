@@ -8,15 +8,11 @@
   --speed: 0.5;
   --overflow-state: hidden;
   --deep-grey: #333;
-  --pink-dark: #a1216199;
-  --pink: #e60073;
-  --pink-light: #ff4da6;
 }
 
 * {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   line-height: 1.5;
-  font-family: 'Open Sans', sans-serif;
   /* border: 1px solid #999; */
 }
 
@@ -34,6 +30,9 @@ body {
   background: var(--deep-grey);
   color: white;
   min-height: 100vh;
+  letter-spacing: 4px;
+  font-weight: normal;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 /**************/
@@ -129,7 +128,6 @@ main > p:last-child {
 
 article > header > h1, 
 article > header > h2 {
-  font-size: 1.5rem;
   font-weight: 700;
   line-height: 1.25;
   letter-spacing: 1px;
@@ -138,14 +136,18 @@ article > header > h2 {
   transition: all 0.5s ease;
 }
 
+article > header > h1 {
+  font-size: 1.675rem;
+}
+
 article > header > h2 {
-  font-size: 1.75rem;
+  font-size: 1.875rem;
 }
 
 h3 {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #ccc;
+  font-size: 1.675rem;
+  font-weight: 600;
+  color: #ddd;
   letter-spacing: 1px;
   text-shadow: 0 5px 5px 5px #000;
 }
@@ -159,6 +161,8 @@ footer {
   position: relative;
   bottom: 0;
   color: #ccc;
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: 0;
 }
 
 footer a {
