@@ -14,6 +14,12 @@ window.startReels = async function() {
   stopAnimation('r3', nums[2]);
 }
 
+window.toggleReel = function(reel, btn) {
+  const thisReel = $(`.reel.${reel}`);
+  thisReel.classList.toggle('stop');
+  btn.classList.toggle('active');
+}
+
 function stopAnimation(reelName, pos, state) {
   const topOffset = 379;
   const reel = $(`.reel.${reelName}`);
