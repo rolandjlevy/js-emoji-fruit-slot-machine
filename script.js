@@ -1,8 +1,13 @@
 import { $, $$, delay, randomNum, getRandomNumbers } from './src/utils.js';
+import { scoring } from './src/scoring.js';
 
 const nums = getRandomNumbers(3, 10);
 
+let credits = 11;
+
 window.startReels = function() {
+  credits--;
+  $('.credits-display').textContent = credits;
   $('.btn.stop').classList.add('active');
   $('.btn.start').classList.remove('active');
   ['r1', 'r2', 'r3'].forEach(item => {
@@ -34,7 +39,7 @@ function stopAnimation(reelName, pos, state) {
   const timer = setInterval(() => {
     const rect = reel.firstElementChild.getBoundingClientRect();
     const top = rect.top + topOffset;
-    if (top >= (pos * 100) - 60 && top <= (pos * 100) - 50) {
+    if (top >= (pos * 100) - 100 && top <= (pos * 100) - 90) {
       if (reelName === 'r3') {
         $('.btn.start').classList.add('active');
       }

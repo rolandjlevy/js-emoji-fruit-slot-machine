@@ -7,6 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0;
 }
 
 .h-align {
@@ -80,6 +81,10 @@
 
 .m-b-0 {
   margin-bottom: 0;
+}
+
+.m-l-10 {
+  margin-left: 10px;
 }
 
 .p-30 {

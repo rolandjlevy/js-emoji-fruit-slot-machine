@@ -1,6 +1,7 @@
 :root {
   --pink-dull: #a1216166;
   --pink-dark: #7e1248;
+  --pink-mid: #cf0068;
   --pink: #e60073;
   --pink-light: #ff4da6;
 }
@@ -14,9 +15,8 @@
 }
 
 .btn, .btn:active {
-  box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--pink-dull), 0 0 40px var(--pink-dull), 0 0 50px var(--pink-dull), 0 0 60px var(--pink-dull), 0 0 70px var(--pink-dull);
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  color: var(--pink-dark);
+  box-shadow: 0 0 20px #ffffffaa, 0 0 30px #ffffffaa, 0 0 30px var(--pink-dull), 0 0 40px var(--pink-dull), 0 0 50px var(--pink-dull), 0 0 60px var(--pink-dull), 0 0 70px var(--pink-dull);
+  font-family: 'Oswald', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;  color: var(--pink-dark);
   padding: 6px 12px;
   margin: 0;
   border: none;
@@ -28,8 +28,8 @@
   cursor: default;
   outline: none;
 	text-shadow: 0px 1px 0px #fff;
-  opacity: 0.8;
-  background: linear-gradient(180deg,#fff2fd 0%,#f1cdeb 49%,#e6b0d6 51%,#f1cdeb 100%);
+  opacity: 0.85;
+  background: linear-gradient(180deg,#fff7fe 0%,#f1cdeb 49%,#e6b0d6 51%,#f1cdeb 100%);
   transition: all 0.2s ease;
 }
 
@@ -45,6 +45,8 @@
 
 .btn.active:hover {
   box-shadow: 0 0 20px #fff, 0 0 30px var(--pink-light), 0 0 40px var(--pink-light), 0 0 50px var(--pink-light), 0 0 60px var(--pink-light), 0 0 70px var(--pink-light), 0 0 80px var(--pink-light);
+  color: var(--pink-mid);
+  transition: all 0.2s ease;
 }
 
 
