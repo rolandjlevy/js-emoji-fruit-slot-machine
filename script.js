@@ -2,6 +2,7 @@ import { $, $$, delay, randomNum, getRandomNumbers } from './src/utils.js';
 import { scoring } from './src/scoring.js';
 
 const nums = getRandomNumbers(3, 10);
+console.log({nums})
 
 let credits = 11;
 
@@ -43,6 +44,7 @@ function stopAnimation(reelName, pos, state) {
       if (reelName === 'r3') {
         $('.btn.start').classList.add('active');
       }
+      console.log({pos})
       reel.classList.add('stop');
       clearInterval(timer);
     }
