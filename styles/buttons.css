@@ -1,0 +1,89 @@
+:root {
+  --pink-dark: #a1216166;
+  --pink: #e60073;
+  --pink-light: #ff4da6;
+}
+
+.buttons {
+  position: relative;
+  width: 300px;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.btn, .btn:active {
+  box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--pink-dark), 0 0 40px var(--pink-dark), 0 0 50px var(--pink-dark), 0 0 60px var(--pink-dark), 0 0 70px var(--pink-dark);
+  background-color: #e3e3e3;
+  color: #a12161;
+  padding: 6px 12px;
+  margin: 0;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  pointer-events: none;
+  cursor: default;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.btn.active {
+  box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--pink), 0 0 40px var(--pink), 0 0 50px var(--pink), 0 0 60px var(--pink), 0 0 70px var(--pink);
+  pointer-events: all;
+  cursor: pointer;
+  color: var(--pink);
+  background-color: #fff;
+  transition: all 0.2s ease;
+}
+
+.btn.active:hover {
+  box-shadow: 0 0 20px #fff, 0 0 30px var(--pink-light), 0 0 40px var(--pink-light), 0 0 50px var(--pink-light), 0 0 60px var(--pink-light), 0 0 70px var(--pink-light), 0 0 80px var(--pink-light);
+}
+
+
+
+
+.btn-green {
+  border: none;
+  border-radius: 5px;
+  background-color: #a7b4a0;
+  color: #386900;
+  width: 50px;
+  height: 50px;
+  outline: none;
+  box-shadow: 0 0 10px 2px #8fff0e;
+  pointer-events: none;
+  cursor: default;
+  font-size: 1.5rem;
+  transition: all 0.2s ease;
+}
+
+.btn-green.active:hover {
+  box-shadow: 0 0 10px 5px #8fff0e;
+  cursor: pointer;
+}
+
+.btn-green.active {
+  color: #fff;
+  background-color: #c9e6ba;
+  pointer-events: all;
+  text-shadow: 0 2px 5px grey;
+  transition: all 0.2s ease;
+}
+
+.btn-green::after {
+  font-family: "Font Awesome 5 Free"; 
+  font-weight: 900;
+  content: "\f04c";
+}
+
+.btn-green.active {
+  transition: all 0.25s ease;
+}
+
+.btn-green.active::after {
+  content: "\f04b";
+  margin-left: 3px;
+}

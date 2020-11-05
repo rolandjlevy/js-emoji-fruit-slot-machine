@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Emoji Slot Machine 🎰</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link href="./styles/buttons.css" rel="stylesheet" type="text/css" />
     <link href="./styles/root.css" rel="stylesheet" type="text/css" />
     <link href="./styles/reels.css" rel="stylesheet" type="text/css" />
     <link href="./styles/layout.css" rel="stylesheet" type="text/css" />
@@ -57,8 +58,15 @@
         <section class="shadow"></section>
       </main>
 
+      <!-- <section class="buttons m-t-50">
+        <button onclick="toggleReel('r1', this)" class="toggle btn active"></button>
+        <button onclick="toggleReel('r2', this)" class="toggle btn active"></button>
+        <button onclick="toggleReel('r3', this)" class="toggle btn active"></button>
+      </section> -->
+
       <section class="buttons m-t-50">
-        <button onclick="startReels()" class="toggle btn"></button>
+        <button onclick="stopReels()" class="btn stop active">STOP</button>
+        <button onclick="startReels()" class="btn start">PLAY</button>
       </section>
 
       <!-- <div class="glow m-t-50">PLAY</div> -->

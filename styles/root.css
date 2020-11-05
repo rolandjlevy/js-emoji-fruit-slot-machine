@@ -8,6 +8,9 @@
   --speed: 0.5;
   --overflow-state: hidden;
   --deep-grey: #333;
+  --pink-dark: #a1216199;
+  --pink: #e60073;
+  --pink-light: #ff4da6;
 }
 
 * {
@@ -146,74 +149,6 @@ h3 {
   letter-spacing: 1px;
   text-shadow: 0 5px 5px 5px #000;
 }
-
-.buttons {
-  position: relative;
-  width: 300px;
-  display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
-}
-
-.btn {
-  border: none;
-  border-radius: 5px;
-  background-color: #a7b4a0;
-  color: #386900;
-  width: 50px;
-  height: 50px;
-  outline: none;
-  box-shadow: 0 0 10px 2px #8fff0e;
-  pointer-events: none;
-  cursor: default;
-  font-size: 1.5rem;
-  transition: all 0.2s ease;
-}
-
-.btn.active:hover {
-  box-shadow: 0 0 10px 5px #8fff0e;
-  cursor: pointer;
-}
-
-.btn.active {
-  color: #fff;
-  background-color: #c9e6ba;
-  pointer-events: all;
-  text-shadow: 0 2px 5px grey;
-  transition: all 0.2s ease;
-}
-
-.btn::after {
-  font-family: "Font Awesome 5 Free"; 
-  font-weight: 900;
-  content: "\f04c";
-}
-
-.btn.active {
-  transition: all 0.25s ease;
-}
-
-.btn.active::after {
-  content: "\f04b";
-  margin-left: 3px;
-}
-
-.glow {
-  --pink: #e60073;
-  box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--pink), 0 0 40px var(--pink), 0 0 50px var(--pink), 0 0 60px var(--pink), 0 0 70px var(--pink);
-  background-color: #fff;
-  width: 40px;
-  height: 30px;
-  color: var(--pink);
-  line-height: 1.5;
-  padding: 10px;
-  margin: 0;
-}
-
-.glow:hover {
-    box-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
-}
-
 
 /**********/
 /* Footer */

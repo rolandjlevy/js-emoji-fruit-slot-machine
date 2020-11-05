@@ -7,7 +7,7 @@ const createElement = function(tag, className) {
   return element;
 }
 
-const delay = (t=3000) => new Promise(resolve => setTimeout(resolve, t));
+const delay = (t) => new Promise(resolve => setTimeout(resolve, t));
 
 const randomNum = (max) => Math.floor(Math.random() * Math.floor(max));
 
