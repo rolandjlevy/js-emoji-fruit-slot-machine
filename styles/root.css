@@ -6,7 +6,6 @@
   --y-to: 0;
   --item-size: 100px;
   --speed: 0.5;
-  --overflow-state: hidden;
   --deep-grey: #333;
 }
 
@@ -32,45 +31,10 @@ body {
   min-height: 100vh;
   letter-spacing: 4px;
   font-weight: normal;
-  font-family: 'Oswald', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  /* font-family: 'Oswald', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+  font-family: 'Roboto Condensed', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-/**************/
-/* Columns ****/
-/**************/
-
-main.wrapper {
-  position: relative;
-  height: var(--item-size);
-  width: calc(var(--item-size) * 3 + 20px);
-  background-color: white;
-  overflow: var(--overflow-state);
-  transform: scaleY(1);
-  transition: all 1s ease-in-out;
-}
-
-main.wrapper.init {
-  background-color: var(--deep-grey);
-  transform: scaleX(0.1);
-  transition: all 1s ease-in;
-}
-
-section.container {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-section.shadow {
-  position: relative;
-  top: 0;
-  left: -50%;
-  width: 200%;
-  height: 100%;
-  box-shadow: 0 6px 15px 5px #333333aa inset, 0 12px 25px 10px #33333399 inset, 0 -8px 20px 5px #33333399 inset;
-}
 
 /***********/
 /* Scoring */
