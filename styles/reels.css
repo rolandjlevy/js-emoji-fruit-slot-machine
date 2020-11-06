@@ -43,7 +43,7 @@ section.shadow {
   width: 200%;
   height: 100%;
   box-shadow: 0 6px 15px 5px #333333aa inset, 0 12px 25px 10px #33333399 inset, 0 -8px 20px 5px #33333399 inset;
-  background: linear-gradient(180deg,#ffffff11 0%,#ffffff22 20%,#ffffff66 40%,#ffffff22 80%,#ffffff11 100%);
+  background: linear-gradient(180deg,#ffffff11 0%,#ffffff22 20%,#ffffff55 50%,#ffffff22 80%,#ffffff11 100%);
 }
 
 /************/
