@@ -1,6 +1,11 @@
 :root {
-  /* --overflow-state: none; */
+  --y-from: 0;
+  --y-to: 0;
+  --item-size: 100px;
+  --speed: 0.5;
+  --deep-grey: #333;
   --overflow-state: hidden;
+  transition: all 0.25s ease;
 }
 
 /**************/
@@ -24,7 +29,7 @@ main.wrapper.init {
 }
 
 section.container {
-  position: relative;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -32,12 +37,13 @@ section.container {
 }
 
 section.shadow {
-  position: relative;
+  position: absolute;
   top: 0;
   left: -50%;
   width: 200%;
   height: 100%;
   box-shadow: 0 6px 15px 5px #333333aa inset, 0 12px 25px 10px #33333399 inset, 0 -8px 20px 5px #33333399 inset;
+  background: linear-gradient(180deg,#ffffff11 0%,#ffffff22 20%,#ffffff66 40%,#ffffff22 80%,#ffffff11 100%);
 }
 
 /************/

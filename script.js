@@ -1,14 +1,13 @@
-import { $, $$, delay, randomNum, getRandomNumbers } from './src/utils.js';
-import { scoreValues, checkScore } from './src/scoring.js';
+import { $, $$, delay, getRandomNumbers } from './src/utils.js';
+import { Score } from './src/Score.js';
 
-let credits = 2;
-let score = 0;
-let winObject = {}
+const score = new Score();
+
 const containerRect = $('.container').getBoundingClientRect();
 
 window.startReels = function() {
-  credits--;
-  $('.credits-display').textContent = credits;
+  score.credits--;
+  $('.credits-display').textContent = score.credits;
   $('.btn.stop').classList.add('active');
   $('.btn.start').classList.remove('active');
   ['r1', 'r2', 'r3'].forEach(item => {
@@ -18,7 +17,7 @@ window.startReels = function() {
 
 window.stopReels = async function() {
   $('.btn.stop').classList.remove('active');
-  winObject = {};
+  score.win = {};
   const nums = getRandomNumbers(3, 10);
   await delay(1500);
   stopAnimation('r1', nums[0]);
@@ -42,12 +41,12 @@ function stopAnimation(reelName, pos, state) {
     const rect = reel.firstElementChild.getBoundingClientRect();
     const top = rect.top + topOffset;
     if (top >= (pos * 100) - 60 && top <= (pos * 100) - 50) {
-      getSelectedEmoji(reelName);
-      if (Object.keys(winObject).length == 3) {
-        const winStr = Object.values(winObject).join('');
-        score += checkScore(winStr);
-        $('.score-display').textContent = String(score);
-        if (credits > 0) {
+      getSelectedFruit(reelName);
+      if (Object.keys(score.win).length == 3) {
+        const winStr = Object.values(score.win).join('');
+        score.total += score.getValue(winStr);
+        $('.score-display').textContent = String(score.total);
+        if (score.credits > 0) {
           $('.btn.start').classList.add('active');
         } else {
           console.log('Restart game...');
@@ -59,11 +58,11 @@ function stopAnimation(reelName, pos, state) {
   }, 1);
 }
 
-function getSelectedEmoji(reelName) {
+function getSelectedFruit(reelName) {
   $$(`.${reelName} > li`).forEach(item => {
     const fruitTop = item.getBoundingClientRect().top + item.clientHeight / 2;
     if (fruitTop > containerRect.top && fruitTop < containerRect.bottom) {
-      winObject[reelName] = item.classList.value;
+      score.win[reelName] = item.classList.value;
     }
   });
 }

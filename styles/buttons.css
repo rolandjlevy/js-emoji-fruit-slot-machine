@@ -16,7 +16,6 @@
 
 .btn, .btn:active {
   box-shadow: 0 0 20px #ffffffaa, 0 0 30px #ffffffaa, 0 0 30px var(--pink-dull), 0 0 40px var(--pink-dull), 0 0 50px var(--pink-dull), 0 0 60px var(--pink-dull), 0 0 70px var(--pink-dull);
-  /* font-family: 'Oswald', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;   */
   font-family: 'Roboto Condensed', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   color: var(--pink-dark);
   padding: 6px 12px;

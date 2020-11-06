@@ -1,12 +1,8 @@
 :root {
   --scrollbar-size: 20px;
   --max-width: 768px;
+  --deep-grey: #333; 
   transition: all 0.25s ease;
-  --y-from: 0;
-  --y-to: 0;
-  --item-size: 100px;
-  --speed: 0.5;
-  --deep-grey: #333;
 }
 
 * {
@@ -31,7 +27,6 @@ body {
   min-height: 100vh;
   letter-spacing: 4px;
   font-weight: normal;
-  /* font-family: 'Oswald', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
   font-family: 'Roboto Condensed', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
@@ -61,6 +56,7 @@ table {
 
 table td {
   padding: 10px 5px;
+  letter-spacing: 1px;
 }
 
 tbody > tr:not(:last-child) {
@@ -96,7 +92,7 @@ article > header > h2 {
   line-height: 1.25;
   letter-spacing: 1px;
   margin: 10px 0;
-  text-shadow: 0 5px 5px 5px #000;
+  text-shadow: 0 3px 5px #000;
   transition: all 0.5s ease;
 }
 
@@ -109,11 +105,11 @@ article > header > h2 {
 }
 
 h3 {
+  color: #ddd;
   font-size: 1.675rem;
   font-weight: 600;
-  color: #ddd;
   letter-spacing: 1px;
-  text-shadow: 0 5px 5px 5px #000;
+  text-shadow: 0 2px 5px #000;
 }
 
 .credits-display, .score-display  {
@@ -123,7 +119,7 @@ h3 {
   transition: all 0.2s ease;
   font-weight: 700;
   text-align: center;
-  text-shadow: 0 2px 2px #000;
+  text-shadow: 0 2px 5px #000;
   letter-spacing: 1px;
 }
 
@@ -164,18 +160,4 @@ footer a:hover {
   font-weight: 900; 
   content: "\f35d";
   margin-left: 5px;
-}
-
-@media only screen and (max-width: 768px) {
-  h2 {
-    /* font-size: 1.75rem;
-    transition: all 0.5s ease; */
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  h2 {
-    /* font-size: 1.5rem;
-    transition: all 0.5s ease; */
-  }
 }
