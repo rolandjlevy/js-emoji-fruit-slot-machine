@@ -31,7 +31,7 @@ main.wrapper {
 
 main.wrapper.init {
   background-color: var(--deep-grey);
-  transform: scaleX(0.1);
+  transform: scaleX(0.01);
   transition: all 1s ease-in;
 }
 

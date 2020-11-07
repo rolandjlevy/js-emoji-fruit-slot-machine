@@ -8,6 +8,7 @@ const sound = new Sound();
 const containerRect = $('.container').getBoundingClientRect();
 
 window.startReels = function() {
+  sound.init('blip.mp3');
   score.credits--;
   $('.credits-display').textContent = score.credits;
   $('.btn.stop').classList.add('active');
@@ -18,8 +19,7 @@ window.startReels = function() {
 }
 
 window.stopReels = async function() {
-  const soundFileName = 'taken.mp3';
-  sound.init(`sounds/${soundFileName}`);
+  sound.init('vibrating-beep.mp3');
   $('.btn.stop').classList.remove('active');
   score.win = {};
   const nums = getRandomNumbers(3, 10);
@@ -46,8 +46,7 @@ function stopAnimation(reelName, pos, state) {
     const top = rect.top + topOffset;
     if (top >= (pos * 100) - 60 && top <= (pos * 100) - 50) {
       getSelectedFruit(reelName);
-      const soundFileName = 'pling.mp3';
-      sound.init(`sounds/${soundFileName}`);
+      sound.init('pling.mp3');
       if (Object.keys(score.win).length == 3) {
         const winStr = Object.values(score.win).join('');
         score.total += score.getValue(winStr);

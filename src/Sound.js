@@ -10,7 +10,7 @@ export class Sound {
   init(src) {
     this.sound.pause();
     this.sound.currentTime = 0;
-    this.sound.src = src;
+    this.sound.src = `sounds/${src}`;
     const playPromise = this.sound.play();
     if (playPromise) {
       playPromise.then(() => {
