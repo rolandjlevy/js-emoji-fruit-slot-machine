@@ -23,7 +23,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   background: var(--deep-grey);
-  color: white;
+  color: #fff;
   min-height: 100vh;
   letter-spacing: 4px;
   font-weight: normal;

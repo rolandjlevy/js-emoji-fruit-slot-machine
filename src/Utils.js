@@ -25,13 +25,23 @@
 //   }
 // }
 
-const $ = (selector) => document.querySelector(selector);
-const $$ = (selector) => document.querySelectorAll(selector);
+function $(selector) {
+  return document.querySelector(selector);
+}
+function $$(selector) {
+  return document.querySelectorAll(selector);
+}
 
-const delay = (t) => new Promise(resolve => setTimeout(resolve, t));
+function delay(t) {
+  new Promise(function(resolve) {
+    setTimeout(resolve, t);
+  });
+}
 
-const getRandomNumbers = function(n, max) {
-  const arr = [...Array(max).keys()].map(n => n+1);
+function getRandomNumbers(n, max) {
+  const arr = [...Array(max).keys()].map(function(n) {
+    return n+1;
+  });
   const selected = [];
   let counter = n;
   while (counter > 0) {

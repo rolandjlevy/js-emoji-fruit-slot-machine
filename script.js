@@ -9,7 +9,7 @@ const sound = new Sound();
 // import { Utils } from './src/Utils.js';
 // new Utils();
 
-const startReels = async function() {
+async function startReels() {
   sound.init('vibrating-beep.mp3');
   $('.btn.start').classList.remove('active');
   score.win = {};
@@ -22,7 +22,7 @@ const startReels = async function() {
   startAnimation('r3', nums[2]);
 }
 
-const replayReels = function(init) {
+function replayReels(init) {
   !init && sound.init('blip.mp3');
   score.credits--;
   $('.credits-display').textContent = score.credits;
@@ -31,9 +31,9 @@ const replayReels = function(init) {
   ['r1', 'r2', 'r3'].forEach(item => $(`.reel.${item}`).classList.remove('stop'));
 }
 
-const startAnimation = function(reelN, pos, state) {
+function startAnimation(reelN, pos, state) {
   const topOffset = 312;
-  const timer = setInterval(() => {
+  const timer = setInterval(function() {
     const top = $(`.reel.${reelN}`).firstElementChild.getBoundingClientRect().top + topOffset;
     if (top >= (pos * 100) - 60 && top <= (pos * 100) - 50) {
       addToScore(reelN);
@@ -44,7 +44,7 @@ const startAnimation = function(reelN, pos, state) {
   }, 1);
 }
 
-const addToScore = function(reelN) {
+function addToScore(reelN) {
   sound.init('pling.mp3');
   const { top, bottom } = $('.container').getBoundingClientRect();
   $$(`.${reelN} > li`).forEach(item => {
@@ -55,7 +55,7 @@ const addToScore = function(reelN) {
   });
 }
 
-const calculateScore = function() {
+function calculateScore() {
   if (Object.keys(score.win).length == 3) {
     score.total += score.getValue();
     $('.score-display').textContent = score.total;
@@ -67,11 +67,15 @@ const calculateScore = function() {
   }
 }
 
-$('.btn.replay').addEventListener('click', (e) => replayReels());
+$('.btn.replay').addEventListener('click', function(e) {  
+  replayReels();
+});
 
-$('.btn.start').addEventListener('click', (e) => startReels());
+$('.btn.start').addEventListener('click', function(e) { 
+  startReels();
+});
 
-document.addEventListener('DOMContentLoaded', async (e) => {
+document.addEventListener('DOMContentLoaded', async function(e) {
   $('main.wrapper').classList.remove('init');
   await delay(1500);
   replayReels(true);
