@@ -17,7 +17,8 @@ export class Score {
       'll': 40,
     }
   }
-  getValue = function(str3) {
+  getValue = function() {
+    const str3 = Object.values(this.win).join('');
     const regex = /^(.)\1+$/;
     const win3 = regex.test(str3) && str3.length == 3;
     if (win3) return this.values[str3];

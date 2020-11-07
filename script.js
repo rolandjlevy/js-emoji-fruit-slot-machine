@@ -1,79 +1,78 @@
-import { $, $$, delay, getRandomNumbers } from './src/utils.js';
+import { $, $$, delay, getRandomNumbers } from './src/Utils.js';
+
 import { Score } from './src/Score.js';
 import { Sound } from './src/Sound.js';
 
 const score = new Score();
 const sound = new Sound();
 
-const containerRect = $('.container').getBoundingClientRect();
+// import { Utils } from './src/Utils.js';
+// new Utils();
 
-window.startReels = function() {
-  sound.init('blip.mp3');
-  score.credits--;
-  $('.credits-display').textContent = score.credits;
-  $('.btn.stop').classList.add('active');
-  $('.btn.start').classList.remove('active');
-  ['r1', 'r2', 'r3'].forEach(item => {
-    $(`.reel.${item}`).classList.remove('stop');
-  });
-}
-
-window.stopReels = async function() {
+const startReels = async function() {
   sound.init('vibrating-beep.mp3');
-  $('.btn.stop').classList.remove('active');
+  $('.btn.start').classList.remove('active');
   score.win = {};
   const nums = getRandomNumbers(3, 10);
   await delay(1500);
-  stopAnimation('r1', nums[0]);
+  startAnimation('r1', nums[0]);
   await delay(1500);
-  stopAnimation('r2', nums[1]);
+  startAnimation('r2', nums[1]);
   await delay(1500);
-  stopAnimation('r3', nums[2]);
+  startAnimation('r3', nums[2]);
 }
 
-window.toggleReel = async function(reel, btn) {
-  const thisReel = $(`.reel.${reel}`);
-  await delay(2000);
-  thisReel.classList.add('stop');
-  btn.classList.toggle('active');
+const replayReels = function(init) {
+  !init && sound.init('blip.mp3');
+  score.credits--;
+  $('.credits-display').textContent = score.credits;
+  $('.btn.start').classList.add('active');
+  $('.btn.replay').classList.remove('active');
+  ['r1', 'r2', 'r3'].forEach(item => $(`.reel.${item}`).classList.remove('stop'));
 }
 
-function stopAnimation(reelName, pos, state) {
+const startAnimation = function(reelN, pos, state) {
   const topOffset = 312;
-  const reel = $(`.reel.${reelName}`);
   const timer = setInterval(() => {
-    const rect = reel.firstElementChild.getBoundingClientRect();
-    const top = rect.top + topOffset;
+    const top = $(`.reel.${reelN}`).firstElementChild.getBoundingClientRect().top + topOffset;
     if (top >= (pos * 100) - 60 && top <= (pos * 100) - 50) {
-      getSelectedFruit(reelName);
-      sound.init('pling.mp3');
-      if (Object.keys(score.win).length == 3) {
-        const winStr = Object.values(score.win).join('');
-        score.total += score.getValue(winStr);
-        $('.score-display').textContent = String(score.total);
-        if (score.credits > 0) {
-          $('.btn.start').classList.add('active');
-        } else {
-          console.log('Restart game...');
-        }
-      }
-      reel.classList.add('stop');
+      addToScore(reelN);
+      calculateScore();
+      $(`.reel.${reelN}`).classList.add('stop');
       clearInterval(timer);
     }
   }, 1);
 }
 
-function getSelectedFruit(reelName) {
-  $$(`.${reelName} > li`).forEach(item => {
+const addToScore = function(reelN) {
+  sound.init('pling.mp3');
+  const { top, bottom } = $('.container').getBoundingClientRect();
+  $$(`.${reelN} > li`).forEach(item => {
     const fruitTop = item.getBoundingClientRect().top + item.clientHeight / 2;
-    if (fruitTop > containerRect.top && fruitTop < containerRect.bottom) {
-      score.win[reelName] = item.classList.value;
+    if (fruitTop > top && fruitTop < bottom) {
+      score.win[reelN] = item.classList.value;
     }
   });
 }
 
+const calculateScore = function() {
+  if (Object.keys(score.win).length == 3) {
+    score.total += score.getValue();
+    $('.score-display').textContent = score.total;
+    if (score.credits > 0) {
+      $('.btn.replay').classList.add('active');
+    } else {
+      console.log('Restart game...');
+    }
+  }
+}
+
+$('.btn.replay').addEventListener('click', (e) => replayReels());
+
+$('.btn.start').addEventListener('click', (e) => startReels());
+
 document.addEventListener('DOMContentLoaded', async (e) => {
   $('main.wrapper').classList.remove('init');
-  await delay(2000);
-  startReels();
+  await delay(1500);
+  replayReels(true);
 });

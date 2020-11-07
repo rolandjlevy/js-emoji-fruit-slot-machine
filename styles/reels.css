@@ -4,6 +4,7 @@
   --item-size: 100px;
   --dark-grey: #555;
   --deep-grey: #333;
+  --light-grey: #eee;
   --overflow-state: hidden;
   transition: all 0.25s ease;
 }
@@ -16,14 +17,8 @@ main.wrapper {
   position: relative;
   height: var(--item-size);
   width: calc(var(--item-size) * 3 + 20px);
-  background-color: white;
-  /* margin: 15px;
-  border: 15px solid var(--dark-grey); */
+  background-color: var(--light-grey);
   box-shadow: 0 0 20px -5px #000;
-  /* border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px; */
   overflow: var(--overflow-state);
   transform: scaleY(1);
   transition: all 1s ease-in-out;
@@ -69,6 +64,15 @@ ul.reel {
   animation-iteration-count: 1;
   transform: translateY(0);
   --speed: 0.25;
+  filter: brightness(0.85) contrast(0.85);
+  background-color: var(--light-grey);
+  transition: all 0.25s ease;
+}
+
+ul.reel.stop {
+  filter: brightness(1) contrast(1);
+  background-color: #fff;
+  transition: all 0.25s ease;
 }
 
 @keyframes slidein {
