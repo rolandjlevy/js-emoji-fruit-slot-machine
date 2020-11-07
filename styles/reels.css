@@ -2,7 +2,7 @@
   --y-from: 0;
   --y-to: 0;
   --item-size: 100px;
-  --speed: 0.5;
+  --dark-grey: #555;
   --deep-grey: #333;
   --overflow-state: hidden;
   transition: all 0.25s ease;
@@ -17,6 +17,13 @@ main.wrapper {
   height: var(--item-size);
   width: calc(var(--item-size) * 3 + 20px);
   background-color: white;
+  /* margin: 15px;
+  border: 15px solid var(--dark-grey); */
+  box-shadow: 0 0 20px -5px #000;
+  /* border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px; */
   overflow: var(--overflow-state);
   transform: scaleY(1);
   transition: all 1s ease-in-out;

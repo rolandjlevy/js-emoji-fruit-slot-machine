@@ -1,7 +1,9 @@
 import { $, $$, delay, getRandomNumbers } from './src/utils.js';
 import { Score } from './src/Score.js';
+import { Sound } from './src/Sound.js';
 
 const score = new Score();
+const sound = new Sound();
 
 const containerRect = $('.container').getBoundingClientRect();
 
@@ -16,6 +18,8 @@ window.startReels = function() {
 }
 
 window.stopReels = async function() {
+  const soundFileName = 'taken.mp3';
+  sound.init(`sounds/${soundFileName}`);
   $('.btn.stop').classList.remove('active');
   score.win = {};
   const nums = getRandomNumbers(3, 10);
@@ -42,6 +46,8 @@ function stopAnimation(reelName, pos, state) {
     const top = rect.top + topOffset;
     if (top >= (pos * 100) - 60 && top <= (pos * 100) - 50) {
       getSelectedFruit(reelName);
+      const soundFileName = 'pling.mp3';
+      sound.init(`sounds/${soundFileName}`);
       if (Object.keys(score.win).length == 3) {
         const winStr = Object.values(score.win).join('');
         score.total += score.getValue(winStr);
