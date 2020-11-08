@@ -1,0 +1,25 @@
+{
+  "name": "js-emoji-slot-machine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1"
+  },
+  "scripts": {
+    "build": "babel src --out-dir dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rolandjlevy/js-emoji-slot-machine.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rolandjlevy/js-emoji-slot-machine/issues"
+  },
+  "homepage": "https://github.com/rolandjlevy/js-emoji-slot-machine#readme"
+}
