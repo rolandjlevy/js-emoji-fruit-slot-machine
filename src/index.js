@@ -1,12 +1,17 @@
-import { $, $$, delay, getRandomNumbers } from './src/Utils.js';
+import { $, $$, delay, getRandomNumbers } from './Utils.js';
 
-import { Score } from './src/Score.js';
-import { Sound } from './src/Sound.js';
+import { Score } from './Score.js';
+import { Sound } from './Sound.js';
+import { Fruit } from './Fruit.js';
 
 const score = new Score();
 const sound = new Sound();
 
-// import { Utils } from './src/Utils.js';
+const fruit = new Fruit();
+const list = fruit.getListOfFruit();
+console.log(list);
+
+// import { Utils } from './Utils.js';
 // new Utils();
 
 const startReels = async () => {
@@ -67,15 +72,15 @@ const calculateScore = () => {
   }
 }
 
-$('.btn.replay').addEventListener('click', function(e) {  
+$('.btn.replay').addEventListener('click', (e) => {  
   replayReels();
 });
 
-$('.btn.start').addEventListener('click', function(e) { 
+$('.btn.start').addEventListener('click', (e) => { 
   startReels();
 });
 
-document.addEventListener('DOMContentLoaded', async function(e) {
+document.addEventListener('DOMContentLoaded', async (e) => {
   $('main.wrapper').classList.remove('init');
   await delay(1500);
   replayReels(true);
