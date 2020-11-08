@@ -13,10 +13,8 @@ export class Sound {
     this.sound.src = `sounds/${src}`;
     const playPromise = this.sound.play();
     if (playPromise) {
-      playPromise.then(function() {
-        setTimeout(() => {
-          this.sound.play();
-        }, 0);
+      playPromise.then(() => {
+        setTimeout(() => this.sound.play(), 0);
       }).catch(error => {
         console.log({error});
       });

@@ -25,23 +25,13 @@
 //   }
 // }
 
-function $(selector) {
-  return document.querySelector(selector);
-}
-function $$(selector) {
-  return document.querySelectorAll(selector);
-}
+const $ = (selector) => document.querySelector(selector);
+const $$ = (selector) => document.querySelectorAll(selector);
 
-function delay(t) {
-  new Promise(function(resolve) {
-    setTimeout(resolve, t);
-  });
-}
+const delay = (t) => new Promise(resolve => setTimeout(resolve, t));
 
-function getRandomNumbers(n, max) {
-  const arr = [...Array(max).keys()].map(function(n) {
-    return n+1;
-  });
+const getRandomNumbers = (n, max) => {
+  const arr = [...Array(max).keys()].map(n => n+1);
   const selected = [];
   let counter = n;
   while (counter > 0) {
@@ -53,6 +43,15 @@ function getRandomNumbers(n, max) {
   selected.sort();
   return selected;
 }
+
+const getRandomNumLong = (arr) => {
+  return arr
+  .map((a) => ({sort: Math.random(), value: a}))
+  .sort((a, b) => a.sort - b.sort)
+  .map((a) => a.value);
+}
+
+const getRandomNums = (arr) => arr.sort(() => Math.random() - 0.5);
 
 export {
   $, $$,

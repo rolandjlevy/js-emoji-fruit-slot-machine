@@ -9,7 +9,7 @@ const sound = new Sound();
 // import { Utils } from './src/Utils.js';
 // new Utils();
 
-async function startReels() {
+const startReels = async () => {
   sound.init('vibrating-beep.mp3');
   $('.btn.start').classList.remove('active');
   score.win = {};
@@ -22,7 +22,7 @@ async function startReels() {
   startAnimation('r3', nums[2]);
 }
 
-function replayReels(init) {
+const replayReels = (init) => {
   !init && sound.init('blip.mp3');
   score.credits--;
   $('.credits-display').textContent = score.credits;
@@ -31,7 +31,7 @@ function replayReels(init) {
   ['r1', 'r2', 'r3'].forEach(item => $(`.reel.${item}`).classList.remove('stop'));
 }
 
-function startAnimation(reelN, pos, state) {
+const startAnimation = (reelN, pos, state) => {
   const topOffset = 312;
   const timer = setInterval(function() {
     const top = $(`.reel.${reelN}`).firstElementChild.getBoundingClientRect().top + topOffset;
@@ -44,7 +44,7 @@ function startAnimation(reelN, pos, state) {
   }, 1);
 }
 
-function addToScore(reelN) {
+const addToScore = (reelN) => {
   sound.init('pling.mp3');
   const { top, bottom } = $('.container').getBoundingClientRect();
   $$(`.${reelN} > li`).forEach(item => {
@@ -55,7 +55,7 @@ function addToScore(reelN) {
   });
 }
 
-function calculateScore() {
+const calculateScore = () => {
   if (Object.keys(score.win).length == 3) {
     score.total += score.getValue();
     $('.score-display').textContent = score.total;
