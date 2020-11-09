@@ -37,7 +37,7 @@ const replayReels = (init) => {
 
 const startAnimation = (reelN, pos, state) => {
   const topOffset = 312;
-  const timer = setInterval(function() {
+  const timer = setInterval(() => {
     const top = $(`.reel.${reelN}`).firstElementChild.getBoundingClientRect().top + topOffset;
     if (top >= (pos * 100) - 60 && top <= (pos * 100) - 50) {
       addToScore(reelN);
