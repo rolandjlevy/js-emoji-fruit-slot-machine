@@ -8,8 +8,7 @@ const score = new Score();
 const sound = new Sound();
 
 const fruit = new Fruit();
-const list = fruit.getListOfFruit();
-console.log(list);
+// const list = fruit.getListOfFruit();
 
 // import { Utils } from './Utils.js';
 // new Utils();
@@ -82,6 +81,7 @@ $('.btn.start').addEventListener('click', (e) => {
 
 document.addEventListener('DOMContentLoaded', async (e) => {
   $('main.wrapper').classList.remove('init');
+  fruit.appendAllListsOfFruit();
   await delay(1500);
   replayReels(true);
 });

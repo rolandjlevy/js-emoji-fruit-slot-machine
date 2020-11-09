@@ -14,7 +14,7 @@ export class Score {
       'ccc': 180,
       'cc': 60,
       'lll': 120,
-      'll': 40,
+      'll': 40
     }
   }
   getValue = function() {

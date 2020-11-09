@@ -31,18 +31,23 @@ export class Fruit {
     .reduce((acc, item, index, array) => {
       const { name, emoji } = this.fruit[item];
       const a = [...Array(this.fruit[item].count).fill({name, emoji})];
-      acc = [...acc, ...a]
+      acc = [...acc, ...a];
       return acc;
     }, [])
     .sort(() => Math.random() - 0.5);
   }
-  getListOfFruit() {
+  getOneListOfFruit(rName) {
     const arr = this.getArrayOfFruit();
-    let str = '<ul>\n';
+    let str = `<ul class="reel ${rName}">\n`;
     arr.forEach(item => {
       str += `\t<li class="${item.name}">${item.emoji}</li>\n`;
-    })
+    });
     str += '</ul>';
     return str;
+  }
+  appendAllListsOfFruit() {
+    let html = '';
+    ['r1', 'r2', 'r3'].forEach(item => html += this.getOneListOfFruit(item));
+    document.querySelector('.container').innerHTML = html;
   }
 }
