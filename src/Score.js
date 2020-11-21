@@ -1,9 +1,11 @@
 export class Score {
   constructor() {
-    this.credits = 10;
-    this.total = 0;
-    this.win = {};
     this.setValues();
+  }
+  reset({credits}) {
+    this.total = 0;
+    this.credits = credits;
+    this.win = {};
   }
   setValues() {
     this.values = {

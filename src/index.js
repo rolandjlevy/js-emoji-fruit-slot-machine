@@ -26,12 +26,12 @@ const startReels = async () => {
   startAnimation('r3', nums[2]);
 }
 
-const replayReels = (init) => {
+const spinReels = (init) => {
   !init && sound.init('blip.mp3');
   score.credits--;
   $('.credits-display').textContent = score.credits;
   $('.btn.start').classList.add('active');
-  $('.btn.replay').classList.remove('active');
+  $('.btn.spin').classList.remove('active');
   ['r1', 'r2', 'r3'].forEach(item => $(`.reel.${item}`).classList.remove('stop'));
 }
 
@@ -64,24 +64,36 @@ const calculateScore = () => {
     score.total += score.getValue();
     $('.score-display').textContent = score.total;
     if (score.credits > 0) {
-      $('.btn.replay').classList.add('active');
+      $('.btn.spin').classList.add('active');
     } else {
-      console.log('Restart game...');
+      $('.btn.reset').classList.add('active');
     }
   }
 }
-
-$('.btn.replay').addEventListener('click', (e) => {  
-  replayReels();
-});
 
 $('.btn.start').addEventListener('click', (e) => { 
   startReels();
 });
 
-document.addEventListener('DOMContentLoaded', async (e) => {
+$('.btn.spin').addEventListener('click', (e) => { 
+  spinReels();
+});
+
+$('.btn.reset').addEventListener('click', (e) => { 
+  resetGame();
+  $('.score-display').textContent = score.total;
+  $('.credits-display').textContent = score.credits;
+  $('.btn.reset').classList.remove('active');
+});
+
+const resetGame = async () => {
+  score.reset({credits:10});
+  await delay(1000);
+  spinReels(true);
+}
+
+document.addEventListener('DOMContentLoaded', (e) => {
   $('main.wrapper').classList.remove('init');
   fruit.appendAllListsOfFruit();
-  await delay(1500);
-  replayReels(true);
+  resetGame();
 });

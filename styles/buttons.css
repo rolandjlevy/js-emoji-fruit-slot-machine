@@ -8,7 +8,7 @@
 
 .buttons {
   position: relative;
-  width: 300px;
+  /* width: 300px; */
   display: flex;
   justify-content: space-around;
   margin-top: 20px;
@@ -32,6 +32,12 @@
   opacity: 0.85;
   background: linear-gradient(180deg,#fff7fe 0%,#f1cdeb 49%,#e6b0d6 51%,#f1cdeb 100%);
   transition: all 0.2s ease;
+  z-index: 1;
+}
+
+.btn:nth-child(1),
+.btn:nth-child(2) {
+  margin-right: 15px;
 }
 
 .btn.active {
@@ -42,6 +48,7 @@
   opacity: 1;
   background: linear-gradient(180deg,#fff7fe 0%,#f7d7f1 49%,#ecb7dc 51%,#f7d7f1 100%);
   transition: all 0.2s ease;
+  z-index: 10;
 }
 
 .btn.active:hover {
