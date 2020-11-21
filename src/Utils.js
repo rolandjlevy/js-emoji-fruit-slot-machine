@@ -1,60 +1,38 @@
-const $ = (selector) => document.querySelector(selector);
-const $$ = (selector) => document.querySelectorAll(selector);
-
-const delay = (t) => new Promise(resolve => setTimeout(resolve, t));
-
-const getRandomNumbers = (n, max) => {
-  const arr = [...Array(max).keys()].map(n => n+1);
-  const selected = [];
-  let counter = n;
-  while (counter > 0) {
-    const random = Math.floor(Math.random() * arr.length);
-    let removed = arr.splice(random, 1).shift();
-    selected.push(removed);
-    counter--;
+export class Utils {
+  constructor() {
   }
-  selected.sort();
-  return selected;
+  $(selector) {
+    return document.querySelector(selector);
+  }
+  $$(selector) {
+    return document.querySelectorAll(selector);
+  }
+  getRandomNumber(min, max) {
+    return Math.round(Math.random() * (max - min + 1) + min);
+  }
+  getRandomNums(arr) {
+    return arr.sort(() => Math.random() - 0.5);
+  }
+  delay(t) {
+    return new Promise(resolve => setTimeout(resolve, t));
+  }
+  getRandomNumbers(n, max) {
+    const arr = [...Array(max).keys()].map(n => n+1);
+    const selected = [];
+    let counter = n;
+    while (counter > 0) {
+      const random = Math.floor(Math.random() * arr.length);
+      let removed = arr.splice(random, 1).shift();
+      selected.push(removed);
+      counter--;
+    }
+    selected.sort();
+    return selected;
+  }
+  getRandomNumLong(arr) {
+    return arr
+    .map((a) => ({sort: Math.random(), value: a}))
+    .sort((a, b) => a.sort - b.sort)
+    .map((a) => a.value);
+  }
 }
-
-const getRandomNumLong = (arr) => {
-  return arr
-  .map((a) => ({sort: Math.random(), value: a}))
-  .sort((a, b) => a.sort - b.sort)
-  .map((a) => a.value);
-}
-
-const getRandomNums = (arr) => arr.sort(() => Math.random() - 0.5);
-
-export {
-  $, $$,
-  delay,
-  getRandomNumbers
-};
-
-// export class Utils {
-//   constructor() {
-//   }
-//   $(selector) {
-//     return document.querySelector(selector);
-//   }
-//   $$(selector) {
-//     return document.querySelectorAll(selector);
-//   }
-//   delay(time) {
-//     return new Promise(resolve => setTimeout(resolve, time));
-//   }
-//   getRandomNumbers(n, max) {
-//     const arr = [...Array(max).keys()].map(n => n+1);
-//     const selected = [];
-//     let counter = n;
-//     while (counter > 0) {
-//       const random = Math.floor(Math.random() * arr.length);
-//       let removed = arr.splice(random, 1).shift();
-//       selected.push(removed);
-//       counter--;
-//     }
-//     selected.sort();
-//     return selected;
-//   }
-// }

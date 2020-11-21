@@ -1,21 +1,15 @@
-import { $, $$, delay, getRandomNumbers } from './Utils.js';
-
+ import { $, $$, delay, getRandomNumbers } from './Tools.js';
 import { Score } from './Score.js';
 import { Sound } from './Sound.js';
 import { Fruit } from './Fruit.js';
 
 const score = new Score();
 const sound = new Sound();
-
 const fruit = new Fruit();
-// const list = fruit.getListOfFruit();
-
-// import { Utils } from './Utils.js';
-// new Utils();
 
 const startReels = async () => {
   sound.init('vibrating-beep.mp3');
-  $('.btn.start').classList.remove('active');
+  $('.btn.play').classList.remove('active');
   score.win = {};
   const nums = getRandomNumbers(3, 10);
   await delay(1500);
@@ -30,7 +24,7 @@ const spinReels = (init) => {
   !init && sound.init('blip.mp3');
   score.credits--;
   $('.credits-display').textContent = score.credits;
-  $('.btn.start').classList.add('active');
+  $('.btn.play').classList.add('active');
   $('.btn.spin').classList.remove('active');
   ['r1', 'r2', 'r3'].forEach(item => $(`.reel.${item}`).classList.remove('stop'));
 }
@@ -71,7 +65,7 @@ const calculateScore = () => {
   }
 }
 
-$('.btn.start').addEventListener('click', (e) => { 
+$('.btn.play').addEventListener('click', (e) => { 
   startReels();
 });
 

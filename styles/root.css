@@ -14,8 +14,9 @@
 html {
   touch-action: manipulation;
   scroll-behavior: smooth;
-  scrollbar-color: darkblue blue !important;
+  scrollbar-color: #555 #888 !important;
   scrollbar-width: var(--scrollbar-size) !important;
+  user-select: none;
 }
 
 body {
@@ -30,7 +31,6 @@ body {
   font-family: 'Roboto Condensed', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-
 /***********/
 /* Scoring */
 /***********/
@@ -39,15 +39,6 @@ body {
   font-size: 1.325rem;
   font-weight: 800;
   text-align: center;
-}
-
-.scrollable {
-  /* max-height: 150px;
-  overflow-y: scroll; */
-  padding: 5px 15px;
-  background: #555;
-  box-shadow: 0 5px 15px 1px #00000066;
-  border-radius: 7px;
 }
 
 table {
@@ -112,6 +103,11 @@ h3 {
   text-shadow: 0 2px 5px #000;
 }
 
+h3 > sup {
+  font-size: 1rem;
+  font-weight: normal;
+}
+
 .credits-display, .score-display  {
   color: #ddd;
   font-size: 2rem;
@@ -129,7 +125,6 @@ h3 {
   letter-spacing: 1px;
 }
 
-
 /**********/
 /* Footer */
 /**********/
@@ -139,8 +134,7 @@ footer {
   position: relative;
   bottom: 0;
   color: #ccc;
-  font-family: 'Open Sans', sans-serif;
-  letter-spacing: 0;
+  letter-spacing: 1px;
 }
 
 footer a {
@@ -160,4 +154,28 @@ footer a:hover {
   font-weight: 900; 
   content: "\f35d";
   margin-left: 5px;
+}
+
+/*************/
+/* Scrollbar */
+/*************/
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #333;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
 }

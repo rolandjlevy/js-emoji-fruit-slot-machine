@@ -1,6 +1,10 @@
-export class Score {
+import { Utils } from './Utils.js';
+
+export class Score extends Utils {
   constructor() {
+    super();
     this.setValues();
+    this.getLeaderBoard({url:'src/data.json', maxIndex:20});
   }
   reset({credits}) {
     this.total = 0;
@@ -28,5 +32,18 @@ export class Score {
     const win2 = regex.test(str2) && str2.length == 2;
     if (win2) return this.values[str2];
     return 0;
+  }
+  getLeaderBoard({url, maxIndex}) {
+    this.$('.leader-board-points').innerHTML = '<li>Loading...</li>';
+    fetch(url)
+    .then(res => res.json())
+    .then(data => {
+      const list = data
+      .sort((a, b) => b.points - a.points)
+      .map(item => `<li>${item.name}: ${item.points}</li>`)
+      .filter((_, index) => index <= maxIndex)
+      .join('');
+      this.$('.leader-board-points').innerHTML = list;
+    });
   }
 }
