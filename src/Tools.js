@@ -14,7 +14,6 @@ const getRandomNumbers = (n, max) => {
     counter--;
   }
   selected.sort();
-  console.log({selected})
   return selected;
 }
 
