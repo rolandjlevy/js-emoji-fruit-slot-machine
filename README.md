@@ -1,6 +1,6 @@
 # 🎰 Emoji Fruit Slot Machine 🎰
 
-This slot machine simulator is made with real emoji fruit 😆 You have 10 credits to play with. Spin the reels and play to beat the high score. To get added to the Leader Board send me a screenshot of your score with your name.
+This slot machine simulator is made with real emoji fruit 🍇 🍊 🍒 🍋 and gives you 10 credits to play with. Spin the reels and try to beat the high score. To get added to the Leader Board send me a screenshot of your score with your name.
 
 ### Links 🔗
 - [Play the game](https://js-emoji-slot-machine.rolandjlevy.repl.co)
