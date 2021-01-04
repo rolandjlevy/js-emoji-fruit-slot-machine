@@ -80,6 +80,8 @@ $('.btn.reset').addEventListener('click', (e) => {
   $('.btn.reset').classList.remove('active');
 });
 
+$('#year').textContent = new Date().getFullYear();
+
 const resetGame = async () => {
   score.reset({credits:10});
   await delay(1000);
