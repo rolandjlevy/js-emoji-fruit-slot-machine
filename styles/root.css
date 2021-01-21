@@ -1,7 +1,13 @@
 :root {
   --scrollbar-size: 20px;
   --max-width: 768px;
-  --deep-grey: #333; 
+  --light-grey: hsl(218, 18%, 80%);
+  --mid-light-grey: hsl(218, 17%, 59%);
+  --mid-grey: hsl(218, 21%, 31%);
+  --mid-dark-grey: hsl(218, 25%, 25%);
+  --dark-grey: hsl(218, 28%, 21%);
+  --deep-dark-grey: hsl(218, 30%, 17%);
+  --deep-grey: hsl(218, 32%, 13%);
   transition: all 0.25s ease;
 }
 
@@ -51,7 +57,7 @@ table td {
 }
 
 tbody > tr:not(:last-child) {
-  border-bottom: 2px solid #333;
+  border-bottom: 2px solid var(--deep-grey);
 }
 
 tbody > tr > td:first-child {
@@ -167,15 +173,15 @@ footer a:hover {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #333;
+  background: var(--deep-dark-grey);
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: var(--mid-grey);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #aaa;
+  background: var(--mid-light-grey);
 }
