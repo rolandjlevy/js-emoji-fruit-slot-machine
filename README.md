@@ -8,7 +8,7 @@ This slot machine simulator is made with real emoji fruit 🍇 🍊 🍒 🍋 an
 - [Explore the Github repo](https://github.com/rolandjlevy/js-emoji-fruit-slot-machine)
 
 ### The game 💰
-![Emoji Fruit Slot Machine](https://github.com/rolandjlevy/js-emoji-fruit-slot-machine/blob/master/images/emoji-fruit-slot-machine.gif?raw=true "Emoji Fruit Slot Machine")
+![Emoji Fruit Slot Machine](./images/emoji-fruit-slot-machine.gif)
 
 ### How to Play 👉
 - **Aim of the game**: You have 10 credits to play with. Spin the reels and play to beat the high score.
